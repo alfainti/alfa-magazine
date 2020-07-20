@@ -3,18 +3,13 @@ module.exports = {
   siteMetadata: {
     siteUrl: `https://testing.com/sitemap.xml` // @TODO swap out for your host
   },
-  plugins: [
-    {
-      resolve: 'gatsby-source-livingdocs',
-      options: {
-        // The accessToken is accessed at buildtime and set in netlify in this case
-        accessToken: process.env.accessToken,
-        design: {
-          name: 'living-times',
-          version: '1.0.0'
-        },
-        recursion: true
-      }
+plugins: [
+  {
+    resolve: "gatsby-source-livingdocs",
+    options: {
+      limit: 35, // defaults to 10, maximum is 100
+      accessToken: "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJzY29wZSI6InB1YmxpYy1hcGk6cmVhZCBwdWJsaWMtYXBpOmNvbmZpZzpyZWFkIHB1YmxpYy1hcGk6d3JpdGUgcHVibGljLWFwaTpjb25maWc6d3JpdGUiLCJuYW1lIjoiYWxmYSIsInByb2plY3RJZCI6OTg1LCJjaGFubmVsSWQiOjk2NSwidHlwZSI6ImNsaWVudCIsImp0aSI6ImNiNjZjYzQxLTg2ZmItNGY0ZS1iMjQzLTA3NDhhODA1ZmJlYSIsImNvZGUiOiJjYjY2Y2M0MS04NmZiLTRmNGUtYjI0My0wNzQ4YTgwNWZiZWEiLCJpYXQiOjE1OTUyMjYwMjl9.0PyGu1_BB7z5tou9WGKcLfc7VFZSnxQLxIa4NSA7HXA"
+     }
     },
     'gatsby-plugin-react-helmet',
     'gatsby-plugin-sitemap',
