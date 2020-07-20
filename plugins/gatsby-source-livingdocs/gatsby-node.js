@@ -24,10 +24,17 @@ exports.sourceNodes = async ({actions}, configOptions) => {
     url: 'https://server.livingdocs.io',
     accessToken: eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJzY29wZSI6InB1YmxpYy1hcGk6cmVhZCBwdWJsaWMtYXBpOmNvbmZpZzpyZWFkIHB1YmxpYy1hcGk6d3JpdGUgcHVibGljLWFwaTpjb25maWc6d3JpdGUiLCJuYW1lIjoiYWxmYSIsInByb2plY3RJZCI6OTg1LCJjaGFubmVsSWQiOjk2NSwidHlwZSI6ImNsaWVudCIsImp0aSI6ImNiNjZjYzQxLTg2ZmItNGY0ZS1iMjQzLTA3NDhhODA1ZmJlYSIsImNvZGUiOiJjYjY2Y2M0MS04NmZiLTRmNGUtYjI0My0wNzQ4YTgwNWZiZWEiLCJpYXQiOjE1OTUyMjYwMjl9.0PyGu1_BB7z5tou9WGKcLfc7VFZSnxQLxIa4NSA7HXA
   })
-
-  const limit = configOptions.limit ? configOptions.limit : 10
-  const recursion = configOptions.recursion ? configOptions.limit : true
-  const allPublications = []
+// fetch document from server
+const publication = await liClient.getPublication({documentId: 1})
+ 
+// fetch design
+const design = await liClient.getDesign({name: 'living-times', version: '0.0.14'})
+ 
+// create document and render it
+const livingdoc = liSDK.document.create({content: publication.content, design})
+const html = livingdoc.render() // you can also use liSDK.document.render(livingdoc)
+ 
+// now, do something great with your html... :)
 
   // As the livingdocs metadata can change, we set some defaults for the graphQL schema.
   const defaultMetadata = {
