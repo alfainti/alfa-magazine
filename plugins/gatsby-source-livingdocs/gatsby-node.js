@@ -22,7 +22,7 @@ exports.sourceNodes = async ({actions}, configOptions) => {
   // create a new livingdocs-client instance
   const liClient = new liSDK.Client({
     url: 'https://server.livingdocs.io',
-    accessToken: configOptions.accessToken
+    accessToken: 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJzY29wZSI6InB1YmxpYy1hcGk6cmVhZCBwdWJsaWMtYXBpOmNvbmZpZzpyZWFkIHB1YmxpYy1hcGk6d3JpdGUgcHVibGljLWFwaTpjb25maWc6d3JpdGUiLCJuYW1lIjoiYWxmYSIsInByb2plY3RJZCI6OTg1LCJjaGFubmVsSWQiOjk2NSwidHlwZSI6ImNsaWVudCIsImp0aSI6ImNiNjZjYzQxLTg2ZmItNGY0ZS1iMjQzLTA3NDhhODA1ZmJlYSIsImNvZGUiOiJjYjY2Y2M0MS04NmZiLTRmNGUtYjI0My0wNzQ4YTgwNWZiZWEiLCJpYXQiOjE1OTUyMjYwMjl9.0PyGu1_BB7z5tou9WGKcLfc7VFZSnxQLxIa4NSA7HXA'
   })
 
   const limit = configOptions.limit ? configOptions.limit : 10
